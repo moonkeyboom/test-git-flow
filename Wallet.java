@@ -8,25 +8,48 @@ public class Wallet {
 
 		public void topUp(double amount) {
 				// เติมเงิน
+				this.amount += amount;
 
 				// เก็บประวัติการเติมเงิน (optional)
+				history.add("+" + amount);
     }
 
 		public void purchase(double spent) {
 				// ตัดเงิน
+				this.amount -= spent;
 
 				// เพิ่มยอดใช้จ่ายสะสม
+				cumulativePurchase += spent;
 
 				// คำนวณการสะสมแต้มจากยอดใช้จ่าย
+				point += (int) spent / 50
 
 				// เก็บประวัติการใช้จ่าย (optional)
+				history.add("-" + spent);
     }
 
 		public void usePoint(int point) {
 				// คำนวณการใช้แต้ม
+				this.point -= point;
 
 				// เก็บประวัติการใช้แต้ม (optional)
+				history.add("point -" + point);
     }
 
 		// getters
+		public double getAmount(){
+			return amount;
+		}
+
+		public double getCumulativePurchase(){
+			return amount;
+		}
+
+		public int getPoint(){
+			return amount;
+		}
+		
+		public ArrayList<String> getHistory(){
+			return history;
+		}
 }
